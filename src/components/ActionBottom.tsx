@@ -1,43 +1,58 @@
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import Modal from 'react-native-modal';
 import { spacing } from '../theme';
 import { ReactNode, useContext } from 'react';
 import { ThemeContext } from '../contexts/ThemeContext';
+import { Divider } from './Divider';
 
 interface Props {
   children: ReactNode
   isVisible: boolean
   onClose: () => void
+  title?: string
 }
 
-export const ActionBottom = ({ children, onClose, ...rest }: Props) => {
+export const ActionBottom = ({ title, children, onClose, ...rest }: Props) => {
   const { theme } = useContext(ThemeContext)
 
   return (
-      <Modal
-        {...rest}
-        style={styles.modal}
-        onBackdropPress={onClose}
-        onBackButtonPress={onClose}
-        swipeDirection="down"
-        onSwipeComplete={onClose}
+    <Modal
+      {...rest}
+      style={styles.modal}
+      onBackdropPress={onClose}
+      onBackButtonPress={onClose}
+      swipeDirection="down"
+      onSwipeComplete={onClose}
+    >
+      <View
+        style={[
+          styles.modalContent,
+          { backgroundColor: theme.cardBackground }
+        ]}
       >
         <View
           style={[
-            styles.modalContent,
-            { backgroundColor: theme.background }
+            styles.dragIndicator,
+            { backgroundColor: theme.borderColor }
           ]}
-        >
-          <View
-            style={[
-              styles.dragIndicator,
-              { backgroundColor: theme.borderColor }
-            ]}
-          />
+        />
 
-          {children}
-        </View>
-      </Modal>
+        {title && <View style={{ alignItems: 'center' }}>
+          <Text
+            style={[
+              styles.actionBottomTitle,
+              { color: theme.secondaryText }
+            ]}
+          >
+            Atenção!
+          </Text>
+
+          <Divider />
+        </View>}
+
+        {children}
+      </View>
+    </Modal>
   );
 };
 
@@ -56,6 +71,11 @@ const styles = StyleSheet.create({
     height: 5,
     borderRadius: 2.5,
     alignSelf: 'center',
+    marginBottom: spacing.s,
+  },
+  actionBottomTitle: {
+    fontFamily: 'Quicksand-Bold',
+    fontSize: 22,
     marginBottom: spacing.s,
   },
 })

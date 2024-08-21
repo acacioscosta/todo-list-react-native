@@ -1,10 +1,11 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Home } from "../screens/Home";
 import { ListTasks } from "../screens/ListTasks";
+import { List } from "../components/ListItem";
 
 export type StackParamList = {
   Home: undefined,
-  ListTasks: undefined,
+  ListTasks: List,
 }
 
 const Stack = createNativeStackNavigator<StackParamList>();

@@ -7,19 +7,52 @@ interface ButtonProps extends TouchableOpacityProps {
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
   title: string;
+  variant?: 'primary' | 'outline' | 'warning';
 }
 
-export const Button = ({ title, leftIcon, rightIcon, ...rest }: ButtonProps) => {
-  const { theme } = useContext(ThemeContext)
+export const Button = ({ title, leftIcon, rightIcon, variant = 'primary', ...rest }: ButtonProps) => {
+  const { theme } = useContext(ThemeContext);
+
+  let buttonContainer = {}
+  let titleStyle = {}
+
+  if (variant === 'primary') {
+    buttonContainer = {
+      backgroundColor: theme.buttonBackground
+    }
+
+    titleStyle = {
+      color: theme.buttonText
+    }
+  }
+
+  if (variant === 'warning') {
+    buttonContainer = {
+      backgroundColor: theme.error
+    }
+
+    titleStyle = {
+      color: '#fff'
+    }
+  }
+
+  if (variant === 'outline') {
+    buttonContainer = {
+      backgroundColor: 'transparent',
+      borderWidth: 1,
+      borderColor: theme.buttonBackground
+    }
+
+    titleStyle = {
+      color: theme.secondaryText
+    }
+  }
 
   return (
     <TouchableOpacity
       style={[
-        styles.inputContainer,
-        {
-          borderColor: theme.borderColor,
-          backgroundColor: theme.buttonBackground
-        }
+        styles.buttonContainer,
+        buttonContainer
       ]}
       {...rest}
     >
@@ -28,7 +61,7 @@ export const Button = ({ title, leftIcon, rightIcon, ...rest }: ButtonProps) => 
       <Text
         style={[
           styles.title,
-          { color: theme.buttonText }
+          titleStyle
         ]}
       >
         {title}
@@ -40,13 +73,12 @@ export const Button = ({ title, leftIcon, rightIcon, ...rest }: ButtonProps) => 
 };
 
 const styles = StyleSheet.create({
-  inputContainer: {
+  buttonContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     height: 48,
-    borderRadius: spacing.s,
-    elevation: 1
+    borderRadius: spacing.s
   },
   title: {
     fontSize: 18,

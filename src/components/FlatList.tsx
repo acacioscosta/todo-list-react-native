@@ -1,7 +1,8 @@
-import { FlatList, FlatListProps, StyleSheet, View } from "react-native"
+import { FlatList, FlatListProps } from "react-native"
 import { Empty } from "./Empty";
 import { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
+import { Divider } from "./Divider";
 
 interface CustomFlatListProps<T> extends FlatListProps<T> {
   emptyMessage?: string;
@@ -12,7 +13,7 @@ export const CustomFlatList = <T,>({ emptyMessage = 'Nenhuma lista encontrada', 
 
   return (
     <FlatList
-      ItemSeparatorComponent={() => <View style={[styles.divider, { backgroundColor: theme.borderColor }]} />}
+      ItemSeparatorComponent={() => <Divider />}
       style={{ flex: 1 }}
       showsVerticalScrollIndicator={false}
       ListEmptyComponent={<Empty emptyMessage={emptyMessage} />}
@@ -20,10 +21,3 @@ export const CustomFlatList = <T,>({ emptyMessage = 'Nenhuma lista encontrada', 
     />
   )
 }
-
-const styles = StyleSheet.create({
-  divider: {
-    width: '100%',
-    height: 1
-  }
-})

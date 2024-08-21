@@ -33,13 +33,11 @@ export const ListItem = ({ id, name, tasks, onLongPress }: ListItemProps) => {
       : acc
   }, 0)
 
-  const onPress = () => {
-    // navigation.navigate("list", {
-    //   id,
-    //   name,
-    //   tasks,
-    // })
-  }
+  const onPress = () => navigation.navigate('ListTasks', {
+    id,
+    name,
+    tasks,
+  })
 
   return (
     <Pressable
@@ -54,9 +52,23 @@ export const ListItem = ({ id, name, tasks, onLongPress }: ListItemProps) => {
         </View>
 
         <View>
-          <Text style={{fontFamily: 'Quicksand-SemiBold', fontSize: 16, color: theme.secondaryText}}>{name}</Text>
+          <Text
+            style={[
+              styles.listName,
+              { color: theme.secondaryText }
+            ]}
+          >
+            {name}
+          </Text>
 
-          <Text style={{fontFamily: 'Quicksand-Bold', fontSize: 14, color: theme.secondaryText}}>{amountFinished} / {tasks.length}</Text>
+          <Text
+            style={[
+              styles.amount,
+              { color: theme.secondaryText }
+            ]}
+          >
+            {amountFinished} / {tasks.length}
+          </Text>
         </View>
       </View>
 
@@ -84,5 +96,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 12,
     alignItems: 'center'
+  },
+  listName: {
+    fontFamily: 'Quicksand-SemiBold',
+    fontSize: 18
+  },
+  amount: {
+    fontFamily: 'Quicksand-Bold',
+    fontSize: 14,
   }
 })

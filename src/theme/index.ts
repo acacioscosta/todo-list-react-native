@@ -9,7 +9,8 @@ export const lightTheme = {
   buttonBackground: '#212121',
   buttonText: '#FFF',
   floatTabBarBackground: '#fff',
-  floatTabBarText: '#757575'
+  floatTabBarText: '#757575',
+  error: '#d32f2f'
 };
 
 export const darkTheme = {
@@ -24,7 +25,8 @@ export const darkTheme = {
   buttonText: '#000',
   avatarBackground: '#212121',
   floatTabBarBackground: '#212121',
-  floatTabBarText: '#bdbdbd'
+  floatTabBarText: '#bdbdbd',
+  error: '#d32f2f'
 };
 
 export const spacing = {
