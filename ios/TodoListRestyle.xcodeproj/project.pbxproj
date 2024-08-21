@@ -12,7 +12,9 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		5CA016A151F840D0A2648CE4 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB12A5930B44A50B2853535 /* Colors.xcassets */; };
 		6A29F625C44D41058C3DFE46 /* Quicksand-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1135994FCA0D4680A6DEFC38 /* Quicksand-SemiBold.ttf */; };
+		74201FEA11874ABEA2745C3B /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E1E3E895CF545A78C34CDE7 /* BootSplash.storyboard */; };
 		7699B88040F8A987B510C191 /* libPods-TodoListRestyle-TodoListRestyleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-TodoListRestyle-TodoListRestyleTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		911D507C61CB4990A3312FC7 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8220D5F42D564EF08EE58AFC /* Quicksand-Medium.ttf */; };
@@ -35,6 +37,7 @@
 		00E356EE1AD99517003FC87E /* TodoListRestyleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoListRestyleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* TodoListRestyleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodoListRestyleTests.m; sourceTree = "<group>"; };
+		0E1E3E895CF545A78C34CDE7 /* BootSplash.storyboard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = BootSplash.storyboard; path = TodoListRestyle/BootSplash.storyboard; sourceTree = "<group>"; };
 		1135994FCA0D4680A6DEFC38 /* Quicksand-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-SemiBold.ttf"; path = "../assets/fonts/Quicksand-SemiBold.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* TodoListRestyle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoListRestyle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = TodoListRestyle/AppDelegate.h; sourceTree = "<group>"; };
@@ -54,6 +57,7 @@
 		89C6BE57DB24E9ADA2F236DE /* Pods-TodoListRestyle-TodoListRestyleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoListRestyle-TodoListRestyleTests.release.xcconfig"; path = "Target Support Files/Pods-TodoListRestyle-TodoListRestyleTests/Pods-TodoListRestyle-TodoListRestyleTests.release.xcconfig"; sourceTree = "<group>"; };
 		9E3BE9BDB40C2AC96AC36E05 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = TodoListRestyle/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		ABC040F31F154D2A8BB871D1 /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Bold.ttf"; path = "../assets/fonts/Quicksand-Bold.ttf"; sourceTree = "<group>"; };
+		DDB12A5930B44A50B2853535 /* Colors.xcassets */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = TodoListRestyle/Colors.xcassets; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -105,6 +109,8 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 				9E3BE9BDB40C2AC96AC36E05 /* PrivacyInfo.xcprivacy */,
+				0E1E3E895CF545A78C34CDE7 /* BootSplash.storyboard */,
+				DDB12A5930B44A50B2853535 /* Colors.xcassets */,
 			);
 			name = TodoListRestyle;
 			sourceTree = "<group>";
@@ -274,6 +280,8 @@
 				97CD2382E71941ACA7E8ADF9 /* Quicksand-Regular.ttf in Resources */,
 				6A29F625C44D41058C3DFE46 /* Quicksand-SemiBold.ttf in Resources */,
 				BEED091151C549D7DCAFE633 /* PrivacyInfo.xcprivacy in Resources */,
+				74201FEA11874ABEA2745C3B /* BootSplash.storyboard in Resources */,
+				5CA016A151F840D0A2648CE4 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
