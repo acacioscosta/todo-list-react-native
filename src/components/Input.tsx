@@ -1,4 +1,4 @@
-import { ReactNode, useContext } from 'react';
+import React, { ReactNode, useContext, useState } from 'react';
 import { StyleSheet, TextInput, TextInputProps, View, Text } from 'react-native';
 import { spacing } from '../theme';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -12,6 +12,7 @@ interface InputProps extends TextInputProps {
 
 export const Input = ({ label, leftIcon, rightIcon, ...rest }: InputProps) => {
   const { theme } = useContext(ThemeContext)
+  const [isFocused, setIsFocused] = useState(false)
 
   return (
     <View>
@@ -26,33 +27,39 @@ export const Input = ({ label, leftIcon, rightIcon, ...rest }: InputProps) => {
         </Text>)
       }
 
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={[
-            styles.input,
-            {
-              borderColor: theme.borderColor,
-              backgroundColor: theme.cardBackground,
-              color: theme.secondaryText
-            }
-          ]}
-          placeholderTextColor={theme.secondaryText}
-          underlineColorAndroid='transparent'
-          {...rest}
-        />
-
+      <View style={[
+        styles.inputContainer,
+        {
+          borderColor: isFocused ? theme.primary : theme.borderColor,
+          backgroundColor: theme.cardBackground
+        }
+      ]}>
         <View style={styles.iconLeft}>
           {leftIcon
             ? leftIcon
             : (
-                <MaterialCommunityIcons
-                  name="text"
-                  size={26}
-                  color={theme.secondaryText}
-                />
-              )
+              <MaterialCommunityIcons
+                name="text"
+                size={26}
+                color={theme.secondaryText}
+              />
+            )
           }
         </View>
+
+        <TextInput
+          style={[
+            styles.input,
+            {
+              color: theme.secondaryText
+            }
+          ]}
+          placeholderTextColor={theme.secondaryText}
+          underlineColorAndroid="transparent"
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+          {...rest}
+        />
 
         {rightIcon && (
           <View style={styles.iconRight}>
@@ -65,9 +72,6 @@ export const Input = ({ label, leftIcon, rightIcon, ...rest }: InputProps) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    marginBottom: spacing.m
-  },
   label: {
     fontSize: 16,
     marginBottom: spacing.s,
@@ -76,13 +80,13 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: spacing.s,
   },
   input: {
     flex: 1,
     height: 50,
-    borderWidth: 1,
     paddingLeft: spacing.xl + 5,
-    borderRadius: spacing.s,
     fontSize: 18,
     fontFamily: 'Quicksand-Medium',
   },
