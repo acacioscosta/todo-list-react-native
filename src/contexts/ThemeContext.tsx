@@ -1,5 +1,6 @@
-import { ReactNode, createContext, useState } from "react";
+import { ReactNode, createContext, useEffect, useState } from "react";
 import { darkTheme, lightTheme } from "../theme";
+import { asyncStorage } from "../../services/asyncStorage";
 
 type ThemeContextData = {
   theme: typeof lightTheme | typeof darkTheme
@@ -17,6 +18,29 @@ function ThemeProvider({ children }: ThemeProviderProps) {
   const [theme, setTheme] = useState(lightTheme);
   const [isDark, setIsDark] = useState(false);
 
+  useEffect(() => {
+    checkThemeStorage()
+  }, [])
+
+  const checkThemeStorage = async () => {
+    const mapTheme = {
+      light: lightTheme,
+      dark: darkTheme
+    }
+
+    const themeSaved = await asyncStorage.getItem('theme') as 'light' | 'dark' | null
+
+    if (!themeSaved) {
+      setTheme(lightTheme)
+      setIsDark(false)
+
+      return
+    }
+
+    setTheme(mapTheme[themeSaved])
+    setIsDark(themeSaved === 'dark')
+  }
+
   const toggleTheme = () => {
     const newTheme = isDark
       ? lightTheme
@@ -24,6 +48,8 @@ function ThemeProvider({ children }: ThemeProviderProps) {
 
     setTheme(newTheme)
     setIsDark(!isDark)
+
+    asyncStorage.setItem('theme', isDark ? 'light' : 'dark')
   };
 
   return (
