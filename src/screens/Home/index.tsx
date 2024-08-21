@@ -1,5 +1,5 @@
 import { useFocusEffect, useNavigation } from "@react-navigation/native"
-import { StyleSheet, Text, View } from "react-native"
+import { StatusBar, StyleSheet, Text, View } from "react-native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { StackParamList } from "../../routes"
 import { Screen } from "../../components/Screen"
@@ -23,7 +23,7 @@ interface ListToRemove {
 
 export const Home = () => {
   const navigation = useNavigation<NativeStackNavigationProp<StackParamList>>()
-  const { theme } = useContext(ThemeContext)
+  const { theme, isDark } = useContext(ThemeContext)
 
   const [searchQuery, setSearchQuery] = useState('')
   const [lists, setLists] = useState<List[]>([])
@@ -133,6 +133,10 @@ export const Home = () => {
 
   return (
     <Screen>
+      <StatusBar
+        backgroundColor={theme.background}
+        barStyle={isDark ? 'light-content' : 'dark-content' }
+      />
       <View style={styles.viewSearch}>
         <Input
           placeholder="Buscar ..."
