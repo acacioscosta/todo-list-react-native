@@ -11,7 +11,7 @@ import { CustomFlatList } from "../../components/FlatList"
 import { List, ListItem } from "../../components/ListItem"
 import { useCallback, useContext, useEffect, useState } from "react"
 import { ActionBottom } from "../../components/ActionBottom"
-import { Button } from "../../components/Button"
+import { Button } from "../../components/Button/Button"
 import FloatTabBar from "../../components/FloatTabBar"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import { storageService } from "../../../services/storageService"
@@ -84,6 +84,10 @@ export const Home = () => {
 
   const handleAddList = async () => {
     try {
+      if (!newListName) {
+        return
+      }
+
       const date = new Date().getTime()
 
       const id = String(date)
@@ -137,6 +141,7 @@ export const Home = () => {
         backgroundColor={theme.background}
         barStyle={isDark ? 'light-content' : 'dark-content' }
       />
+
       <View style={styles.viewSearch}>
         <Input
           placeholder="Buscar ..."
@@ -174,12 +179,12 @@ export const Home = () => {
           />
         </View>
 
-        <View style={{ marginHorizontal: spacing.s, marginVertical: spacing.m }}>
-          <Button
-            title="Adicionar"
-            onPress={handleAddList}
-          />
-        </View>
+        <Button
+          title="Adicionar"
+          onPress={handleAddList}
+          style={styles.btnAdd}
+          disabled={!newListName}
+        />
       </ActionBottom>
 
       <ActionBottom
@@ -225,6 +230,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 30,
     top: 12,
+  },
+  btnAdd: {
+    marginHorizontal: spacing.s,
+    marginVertical: spacing.m
   },
   textConfirm: {
     fontFamily: 'Quicksand-Medium',

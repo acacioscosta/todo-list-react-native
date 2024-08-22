@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { View, Text, StyleSheet, ViewStyle, TextStyle } from 'react-native';
-import { colors } from '../theme'
 import { ThemeContext } from '../contexts/ThemeContext';
 
 interface AvatarProps {

@@ -12,8 +12,7 @@ import { CustomFlatList } from "../../components/FlatList"
 import { Task, TaskItem } from "../../components/TaskItem"
 import { storageService } from "../../../services/storageService"
 import { ActionBottom } from "../../components/ActionBottom"
-import { Button } from "../../components/Button"
-import { Divider } from "../../components/Divider"
+import { Button } from "../../components/Button/Button"
 
 type RouteListTasksParams = {
   list: List

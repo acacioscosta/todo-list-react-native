@@ -8,6 +8,8 @@ export const lightTheme = {
   borderColor: '#E0E0E0',
   buttonBackground: '#212121',
   buttonText: '#FFF',
+  buttonTextWarning: '#FFF',
+  buttonDisabled: '#B8B8B8',
   floatTabBarBackground: '#fff',
   floatTabBarText: '#757575',
   error: '#d32f2f'
@@ -23,6 +25,8 @@ export const darkTheme = {
   borderColor: '#424242',
   buttonBackground: '#bdbdbd',
   buttonText: '#000',
+  buttonTextWarning: '#FFF',
+  buttonDisabled: '#B8B8B8',
   avatarBackground: '#212121',
   floatTabBarBackground: '#212121',
   floatTabBarText: '#bdbdbd',

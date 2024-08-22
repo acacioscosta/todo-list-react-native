@@ -2,8 +2,10 @@ import { ReactNode, createContext, useEffect, useState } from "react";
 import { darkTheme, lightTheme } from "../theme";
 import { asyncStorage } from "../../services/asyncStorage";
 
+export type ThemeType = typeof lightTheme | typeof darkTheme
+
 type ThemeContextData = {
-  theme: typeof lightTheme | typeof darkTheme
+  theme: ThemeType
   toggleTheme: () => void
   isDark: boolean
 }
